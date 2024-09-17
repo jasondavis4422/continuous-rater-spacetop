@@ -32,7 +32,7 @@
     import Loading from "./components/Loading.svelte";
     import Header from "./components/Header.svelte";
     import MTurkPreview from "./pages/MTurkPreview.svelte";
-
+import Prolific from "./pages/Prolific.svelte"
     // path details
     const ratingsPath = `${experiment}/ratings`;
     const ratingsDoc = db.doc(ratingsPath);
@@ -337,16 +337,20 @@
             on:finished={() => agreedConsent()}
             on:returned={() => failedConsent()}
         ></Consent>
-    {:else if currentState === "botcheck-instruct"}
+        {:else if currentState === "botcheck-instruct"}
         <Botcheck
-            on:finished={() => updateState("instructions1")}
+            on:finished={() => updateState("prolific")}
             on:failed={() => failedBot()}
         ></Botcheck>
     {:else if currentState === "botcheck-task"}
         <Botcheck
-            on:finished={() => updateState("task")}
+            on:finished={() => updateState("prolific")}
             on:failed={() => failedBot()}
         ></Botcheck>
+        {:else if currentState === "prolific"}
+        <Prolific subPath={subjectPath} {email} {labName} {numOptions}
+        on:finished={() => updateState("instructions1")}></Prolific>
+
     {:else if currentState === "instructions1"}
         <Instructions1
             ratingType={currRating}
