@@ -37,6 +37,8 @@ export const totalHITTime = estHITTime * 2; // total time provided for HIT (in m
 
 // stimuli variables      
 export const ratingTypes = ['amused', 'happy', 'sad']; // array of rating types   
+// spacetop - 37 from cowan and keltner 2017, 4 from kragel 2017
+// export const ratingTypes = ["Adoration", "Aesthetic appreciation", "Amusement", "Anger", "Anxiety", "Awe", "Awkwardness", "Boredom", "Calmness", "Confusion", "Contempt", "Craving", "Disappointment", "Disgust", "Empathic pain", "Entrancement", "Envy", "Excitement", "Fear", "Guilt", "Horror", "Humor", "Interest", "Joy", "Nostalgia", "Pride", "Relief", "Romance", "Sadness", "Satisfaction", "Sexual desire", "Surprise", "Sympathy", "Triumph", "Humor", "Indifferent", "Agitated", "Content", "Pleasant", "Unpleasant", "Calm", "Aroused"]
 
 // this configures path to proper firebase
 // COPY AND PASTE YOUR FIREBASE CONFIG HERE
