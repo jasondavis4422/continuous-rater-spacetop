@@ -320,6 +320,54 @@ import Prolific from "./pages/Prolific.svelte"
         }
         return arr;
     }
+
+function groupItbySes(arr) {
+  return arr.reduce((store, word) => {
+    const letter = word.charAt(5)
+    const keyStore = (
+      store[letter] ||     // Does it exist in the object?
+      (store[letter] = []) // If not, create it as an empty array
+    ); 
+    keyStore.push(word)
+
+    return store
+  }, {})
+}
+
+function groupItbyRun(arr) {
+  return arr.reduce((store, word) => {
+    const letter = word.charAt(12)
+    const keyStore = (
+      store[letter] ||     // Does it exist in the object?
+      (store[letter] = []) // If not, create it as an empty array
+    ); 
+    keyStore.push(word)
+
+    return store
+  }, {})
+}
+
+function groupItbyOrder(arr) {
+  return arr.reduce((store, word) => {
+    const letter = word.charAt(21)
+    const keyStore = (
+      store[letter] ||     // Does it exist in the object?
+      (store[letter] = []) // If not, create it as an empty array
+    ); 
+    keyStore.push(word)
+
+    return store
+  }, {})
+}
+
+
+
+const numbers = [1, 1, 3, 3, 4, 5, 5, 5];
+
+partitionBy(numbers, n => n % 3);
+// [[1, 1, 4], [3, 3], [5, 5, 5]]
+partitionBy(numbers, n => n);
+// [[1, 1], [3, 3], [4], [5, 5, 5]]
 </script>
 
 <div class="content">
